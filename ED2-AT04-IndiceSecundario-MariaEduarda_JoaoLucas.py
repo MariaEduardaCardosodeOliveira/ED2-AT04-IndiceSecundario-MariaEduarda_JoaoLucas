@@ -17,8 +17,16 @@ class Musica:
         campos = record_line.split("|")
         if len(campos) != 6:
             raise ValueError("Erro: arquivo de dados invalido.")
-        return Musica(*campos, record_line)
 
+        # Remove espaços/brancos à direita e à esquerda de cada campo
+        # (mas mantemos a linha original para escrever na saída).
+        campos = [c.strip() for c in campos]
+
+        ano, duracao, titulo, artista, genero, idioma = campos
+        return Musica(ano, duracao, titulo, artista, genero, idioma, record_line)
+
+    
+    
 
 def ler_cabecalho(linha_header):
     # Valida o cabeçalho (SIZE, TOP, QTDE, STATUS) conforme padrão da disciplina.
@@ -58,26 +66,26 @@ def ler_dados(caminho):
 
         musicas = []
 
-        # Lê exatamente QTDE registros, ajustando automaticamente para SIZE caracteres.
+        # Lê exatamente QTDE registros (uma linha por música).
         for _ in range(qtde):
             linha = arq.readline()
             if not linha:
                 raise ValueError("Erro: arquivo de dados invalido.")
 
-            linha_sem_nl = linha.rstrip("\n")
+            # tira só \n e \r, preserva o resto como linha "bruta"
+            linha_sem_nl = linha.rstrip("\r\n")
 
-            # Ajusta automaticamente para o tamanho fixo esperado (SIZE).
+            # Ajusta automaticamente para o tamanho mínimo esperado (SIZE),
+            # mas sem atrapalhar o split por '|'.
             if len(linha_sem_nl) < size:
-                # Preenche com espaços à direita.
-                linha_sem_nl = linha_sem_nl + " " * (size - len(linha_sem_nl))
-            elif len(linha_sem_nl) > size:
-                # Trunca para SIZE caracteres.
-                linha_sem_nl = linha_sem_nl[:size]
+                linha_ajustada = linha_sem_nl + " " * (size - len(linha_sem_nl))
+            else:
+                linha_ajustada = linha_sem_nl[:size]
 
-            # Agora a linha está GARANTIDAMENTE com SIZE caracteres.
-            musicas.append(Musica.from_record_line(linha_sem_nl))
+            musicas.append(Musica.from_record_line(linha_ajustada))
 
     return musicas, info
+
 
 
 
