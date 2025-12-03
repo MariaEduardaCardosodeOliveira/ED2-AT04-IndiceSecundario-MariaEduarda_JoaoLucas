@@ -1,11 +1,11 @@
-SIZE|TOP|QTDE|STATUS
-1998|03:59|Doo Wop (That Thing)|Lauryn Hill|soul|ingles
-2014|04:01|Stay With Me|Sam Smith|pop|ingles
-1970|03:14|Trem das Onze|Adoniran Barbosa|samba|portugues
-1979|03:28|Oceano|Djavan|mpb|portugues
-1987|05:56|Sweet Child O' Mine|Guns N' Roses|rock|ingles
-1984|04:18|I Want to Break Free|Queen|rock|ingles
-1990|04:20|Evidências|Chitãozinho & Xororó|sertanejo|portugues
-1991|03:54|Primavera|Tim Maia|mpb|portugues
-2006|03:59|Por Onde Andei|Nando Reis|mpb|portugues
+SIZE=91 TOP=-1 QTDE=10 STATUS=0
+1998|03:59|Doo Wop (That Thing)|Lauryn Hill|soul|ingles 
+2014|04:01|Stay With Me|Sam Smith|pop|ingles 
+1970|03:14|Trem das Onze|Adoniran Barbosa|samba|portugues 
+1979|03:28|Oceano|Djavan|mpb|portugues 
+1987|05:56|Sweet Child O' Mine|Guns N' Roses|rock|ingles 
+1984|04:18|I Want to Break Free|Queen|rock|ingles 
+1990|04:20|Evidências|Chitãozinho & Xororó|sertanejo|portugues 
+1991|03:54|Primavera|Tim Maia|mpb|portugues 
+2006|03:59|Por Onde Andei|Nando Reis|mpb|portugues 
 2020|03:23|Don't Start Now|Dua Lipa|pop|ingles
